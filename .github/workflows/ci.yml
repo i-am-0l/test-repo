@@ -20,5 +20,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build and test
-        run: ./gradlew test               # your actual build command
+      - name: Compile
+        run: javac src/com/app/tester/TestFunctionality.java
+
+      - name: Run
+        run: java -cp src com.app.tester.TestFunctionality
