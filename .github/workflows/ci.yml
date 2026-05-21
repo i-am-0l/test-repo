@@ -18,10 +18,13 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '17'
-          distribution: 'temurin'
+          distribution: 'temurin'       
+       
+      - name: Create output directory
+        run: mkdir -p bin
 
       - name: Compile
-        run: javac src/com/app/tester/TestFunctionality.java
+        run: javac -d bin src/com/app/core/Box.java src/com/app/tester/TestFunctionality.java
 
       - name: Run
-        run: java -cp src com.app.tester.TestFunctionality
+        run: java -cp bin com.app.tester.TestFunctionality
